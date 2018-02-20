@@ -152,7 +152,7 @@ of the authenticator based on authenticating against LDAP.
 	security-serviceAccountDn=uid=admin,ou=system
 
 
-# Starting Cluster
+### Starting Cluster
 
 From gfsh (sample start)
 
