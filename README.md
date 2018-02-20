@@ -3,6 +3,8 @@
 
 Pivotal GemFire 8.x provides a flexible framework for your security authentication plug-ins. This project provide example implementations.
 
+See [http://gemfire82.docs.pivotal.io/docs-gemfire/managing/security/chapter_overview.html](http://gemfire82.docs.pivotal.io/docs-gemfire/managing/security/chapter_overview.html) for more details.
+
 ## Authentication
 
 
