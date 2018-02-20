@@ -125,7 +125,7 @@ public class PropertiesAuthenticatorTest {
 
 	private PropertiesAuthenticator createAuthenticator() throws IOException, FileNotFoundException {
 		Properties securityProperties = new Properties();
-		securityProperties.load(new FileReader(new File("src/test/resources/gfsecurity-server.properties")));
+		securityProperties.load(new FileReader(new File("src/test/resources/property-ex-security-server.properties")));
 		LogWriter logger = Mockito.mock(LogWriter.class);
 		LogWriter securityLogger = Mockito.mock(LogWriter.class);
 		PropertiesAuthenticator authenticator = (PropertiesAuthenticator)PropertiesAuthenticator.create();

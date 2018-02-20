@@ -3,6 +3,8 @@ package io.pivotal.gemfire.security.legacy;
 import com.gemstone.gemfire.security.AuthInitialize;
 import com.gemstone.gemfire.security.Authenticator;
 
+import io.pivotal.gemfire.security.legacy.ldap.LDAPAuthenticator;
+
 /**
  * SecurityFactory is representable for the create authorization/authentication objects
  * @author Gregory Green

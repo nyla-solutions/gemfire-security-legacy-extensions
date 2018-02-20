@@ -1,4 +1,4 @@
-package io.pivotal.gemfire.security.legacy;
+package io.pivotal.gemfire.security.legacy.ldap;
 
 import java.security.Principal;
 import java.util.Properties;
@@ -10,6 +10,7 @@ import com.gemstone.gemfire.distributed.DistributedMember;
 import com.gemstone.gemfire.security.AuthenticationFailedException;
 import com.gemstone.gemfire.security.Authenticator;
 
+import io.pivotal.gemfire.security.legacy.SecurityConstants;
 import nyla.solutions.core.ds.LDAP;
 import nyla.solutions.core.util.Config;
 import nyla.solutions.core.util.Cryption;

@@ -17,6 +17,8 @@ import com.gemstone.gemfire.LogWriter;
 import com.gemstone.gemfire.distributed.DistributedMember;
 import com.gemstone.gemfire.security.AuthenticationFailedException;
 
+import io.pivotal.gemfire.security.legacy.ldap.LDAPAuthenticator;
+
 
 public class LDAPAuthenticatorTest {
 

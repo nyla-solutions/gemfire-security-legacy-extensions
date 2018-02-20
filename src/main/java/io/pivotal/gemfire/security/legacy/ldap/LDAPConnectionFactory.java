@@ -1,4 +1,4 @@
-package io.pivotal.gemfire.security.legacy;
+package io.pivotal.gemfire.security.legacy.ldap;
 
 import javax.naming.NamingException;
 import nyla.solutions.core.ds.LDAP;
