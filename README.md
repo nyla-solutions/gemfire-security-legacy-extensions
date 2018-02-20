@@ -15,7 +15,7 @@ Pivotal GemFire 8.x provides a flexible framework for your security authenticati
 - For authorization, the implementation interface is com.gemstone.gemfire.security.AccessControl
 
 
-## Configuration
+### Configuration
 
 - Create implementation of com.gemstone.gemfire.security.AuthInitialize
 - Use a public static method to return an instance of the class.
@@ -26,7 +26,7 @@ Pivotal GemFire 8.x provides a flexible framework for your security authenticati
 For peers and locators use the GemFire property *security-peer-authenticator* to a static create method that returns 
 and implementation of the Authenticator interface.
 
-	security-peer-auth-init=...
+	security-peer-authenticator=...
 
 
 ** Client Server **
