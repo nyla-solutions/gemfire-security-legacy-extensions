@@ -1,7 +1,7 @@
 # Overview
 
 
-Pivotal GemFire 8.x provides a flexible framework for your security authentication plug-ins. This projects example implementations.
+Pivotal GemFire 8.x provides a flexible framework for your security authentication plug-ins. This project provide example implementations.
 
 ## Authentication
 
@@ -11,9 +11,6 @@ Pivotal GemFire 8.x provides a flexible framework for your security authenticati
 
 
 ### Configuration
-
-- Create implementation of com.gemstone.gemfire.security.AuthInitialize
-- Use a public static method to return an instance of the class.
 
 
 **Peer to Peer**
@@ -26,7 +23,8 @@ and implementation of the Authenticator interface.
 
 ** Client Server **
 
-For authorizing client credentials use the property *security-client-authenticator*
+For authorizing client credentials use the property *security-client-authenticator* to a static create method that returns 
+and implementation of the Authenticator interface.
  
  Example
  
@@ -43,7 +41,7 @@ of the authenticator based on storing user credentials in the properties.
 
 *Password Encryption*
 
-YOU MUST SET the environment variable CRYPTION_KEY
+YOU MUST SET the environment variable CRYPTION_KEY on client and all server members. The same CRYPTION_KEY value must be used.
 
 Example
 
@@ -80,23 +78,22 @@ The following property is for a username *pjohn*  with encrypted password output
 
 
 The following GemFire security property will enable Peer to peer
-authenticator.
+authentication.
 
 	security-peer-authenticator=io.pivotal.gemfire.security.legacy.properties.PropertiesAuthenticator.create
 
 
-The following property will allow the security-username and security-password in the GemFire security property to be sent when the started member joins the cluster. This example code using the CryptionPropertyAuthInitialize object to initialize the 
+The following property will allow the security-username and security-password in the GemFire security property to be sent when the started member joins the cluster. This example code uses the CryptionPropertyAuthInitialize object to initialize the 
 security username/password sent to the server. It will encrypt the password
-using nyla.solutions.core.util.Cryption. Note the environment variable *CRYPTION_KEY* must be set client to the same value on all members otherwise the passwords will not match.
+using nyla.solutions.core.util.Cryption. Note the environment variable *CRYPTION_KEY* must be set on the client to the same value on all members otherwise the passwords will not match.
 
  
 	security-peer-auth-init=io.pivotal.gemfire.security.legacy.CryptionPropertyAuthInitialize.create
 
-The following the cluster server side property that will authenticate the user as the "cluster" user.
+The following  cluster server side property that will identify the members as the user "cluster" with an stored encrypted password.
 
 	security-username=cluster
 	security-password={cryption}g2BadPiglBcj1HECZzC6Qw==
-
 
 
 The following is a complete server side GemFire security property file example.
@@ -139,9 +136,9 @@ The following is a complete server side GemFire security property file example.
 **Client Test**
 
 
-The following is sample code to establish a connection with a username/password. This example code using the CryptionPropertyAuthInitialize object to initialize the 
+The following is sample code to establish a cliemt connection with a username/password. This example code using the CryptionPropertyAuthInitialize object client side to initialize the 
 security username/password sent to the server. It will encrypt the password
-using nyla.solutions.core.util.Cryption. Note the environment variable *CRYPTION_KEY* must be set client to the same value on the server otherwise the passwords will not match. 
+using nyla.solutions.core.util.Cryption. Note the environment variable *CRYPTION_KEY* must be set on client to the same value on the server otherwise the passwords will not match. 
 
 
 	ClientCacheFactory factory = new ClientCacheFactory()
