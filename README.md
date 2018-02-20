@@ -68,14 +68,13 @@ Include the output with the prefix {cryption} in your property file
 	
 
 
-The user/password can be stored a GemFire security properties file.
-The formation is *security-users-*${USERNAME}=EncryptedorUnEncryptedPassword
+The user/password can be stored in a GemFire security properties file. The property format is *security-users-*${USERNAME}=EncryptedorUnEncryptedPassword
 
-The following example property is for a username *nyla*  unencrypted password *PurpleAnd#Pink*
+The following example property is for a username *nyla*  with an unencrypted password *PurpleAnd#Pink*
 
 	security-users-nyla=PurpleAnd#Pink
 
-The following property is for a username *pjohn*  encrypted password
+The following property is for a username *pjohn*  with encrypted password output from nyla.solutions.core.util.Cryption.
 	
 	security-users-pjohn={cryption}a8+kDY+shMmL2ZCOV+/njA==
 
@@ -86,7 +85,7 @@ authenticator.
 	security-peer-authenticator=io.pivotal.gemfire.security.legacy.properties.PropertiesAuthenticator.create
 
 
-The following property will allow the security-username and security-password to be sent when the started member joins the cluster. This example code using the CryptionPropertyAuthInitialize object to initialize the 
+The following property will allow the security-username and security-password in the GemFire security property to be sent when the started member joins the cluster. This example code using the CryptionPropertyAuthInitialize object to initialize the 
 security username/password sent to the server. It will encrypt the password
 using nyla.solutions.core.util.Cryption. Note the environment variable *CRYPTION_KEY* must be set client to the same value on all members otherwise the passwords will not match.
 
@@ -97,6 +96,28 @@ The following the cluster server side property that will authenticate the user a
 
 	security-username=cluster
 	security-password={cryption}g2BadPiglBcj1HECZzC6Qw==
+
+
+
+The following is a complete server side GemFire security property file example.
+
+
+	# Set authenticator
+	security-client-authenticator=io.pivotal.gemfire.security.legacy.properties.PropertiesAuthenticator.create
+	security-peer-authenticator=io.pivotal.gemfire.security.legacy.properties.PropertiesAuthenticator.create
+	
+	# Configured users
+	security-users-valid=valid
+	security-users-admin=secret
+	
+	security-users-unencrypted=password
+	security-users-cluster=cluster
+	
+	security-users-encrypted={cryption}a8+kDY+shMmL2ZCOV+/njA==
+	
+	security-username=cluster
+	security-password={cryption}g2BadPiglBcj1HECZzC6Qw==
+	security-peer-auth-init=io.pivotal.gemfire.security.legacy.CryptionPropertyAuthInitialize.create
 
 	
 **Runtime Setup**
