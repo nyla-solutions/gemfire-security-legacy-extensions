@@ -10,11 +10,6 @@ Pivotal GemFire 8.x provides a flexible framework for your security authenticati
 
 
 
-## Authorization
-
-- For authorization, the implementation interface is com.gemstone.gemfire.security.AccessControl
-
-
 ### Configuration
 
 - Create implementation of com.gemstone.gemfire.security.AuthInitialize
@@ -168,3 +163,11 @@ From gfsh (sample start)
 	
 	
 	create region --name=test --type=PARTITION
+	
+	
+	
+
+## Authorization
+
+- For authorization, the implementation interface is com.gemstone.gemfire.security.AccessControl
+	
